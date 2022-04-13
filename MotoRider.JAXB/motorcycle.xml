@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Motorcycle xmlns="http://schemas.datacontract.org/2004/07/MotoRider.Shared.Models">
+    <Make>Aprilia</Make>
+    <Model>R4</Model>
+    <YearOfManufacture>2010</YearOfManufacture>
+    <Mileage>123</Mileage>
+    <Price>1234.56</Price>
+    <AvailableForRent>true</AvailableForRent>
+</Motorcycle>

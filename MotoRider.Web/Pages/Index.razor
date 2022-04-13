@@ -1,0 +1,34 @@
+﻿@page "/" 
+
+<div class="container text-center mt-5">
+    <h1>Welcome to MotoRider</h1>
+    <hr class="w-50 mb-5" style="background-color: white;" />
+
+    <h4>City temperature service</h4>
+    <hr class="w-25 mb-3" style="background-color: white;" />
+    <div class="form-group w-25 mx-auto">
+        <label for="cityName">Insert city name:</label>
+        <input type="text" class="form-control" id="cityName" @bind="CityName" />
+        <button class="btn btn-outline-success w-100 mt-3" @onclick="GetTemperature">Get temperature</button>
+    </div>
+
+    <div>
+        @if (!string.IsNullOrWhiteSpace(CityName))
+        {
+            <h4 class="mt-5">Temperature in @CityName is @Temperature°C</h4>
+        }
+    </div>
+</div>
+
+@code {
+    [Inject]
+    public ITemperatureRpcService TemperatureRpcService { get; set; }
+
+    private string CityName = "";
+    private string Temperature = "";
+
+    private async Task GetTemperature()
+    {
+        Temperature = await TemperatureRpcService.GetTemperatureAsync(CityName);        
+    }
+}

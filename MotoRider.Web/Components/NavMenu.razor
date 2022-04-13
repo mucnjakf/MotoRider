@@ -1,0 +1,73 @@
+﻿@inject ISessionStorageService SessionStorage
+@inject NavigationManager NavigationManager 
+
+<nav class="navbar navbar-expand navbar-dark bg-dark justify-content-between">
+    <div>
+        <a class="navbar-brand" href="/">MotoRider</a>
+        <span class="text-white mx-5">@(string.IsNullOrEmpty(user) ? "" : $"User: {user}")</span>
+    </div>
+    <ul class="navbar-nav">
+        @{
+            if (!string.IsNullOrEmpty(token))
+            {
+                <li class="nav-item mx-2">
+                    <NavLink class="btn btn-outline-light" href="/motorcycle-rent">
+                        Motorcycle Rent
+                    </NavLink>
+                </li>
+                <li class="nav-item mx-2">
+                    <NavLink class="btn btn-outline-light" href="/rent-management">
+                        Rent Management
+                    </NavLink>
+                </li>
+                <li class="nav-item mx-2">
+                    <NavLink class="btn btn-outline-light" href="/motorcycle-management">
+                        Motorcycles
+                    </NavLink>
+                </li>
+                <li class="nav-item mx-2">
+                    <NavLink class="btn btn-outline-light" href="/customer-management">
+                        Customers
+                    </NavLink>
+                </li>
+                <li class="nav-item mx-2">
+                    <button class="btn btn-outline-danger" @onclick="HandleLogoutUser">
+                        Logout
+                    </button>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item mx-2">
+                    <NavLink class="btn btn-outline-primary" href="/register">
+                        Register
+                    </NavLink>
+                </li>
+                <li class="nav-item mx-2">
+                    <NavLink class="btn btn-outline-success" href="/login">
+                        Login
+                    </NavLink>
+                </li>
+            }
+        }
+    </ul>
+</nav>
+
+@code
+{
+    string token = "";
+    string user = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        token = await SessionStorage.GetItemAsStringAsync("Token");
+        user = await SessionStorage.GetItemAsStringAsync("User");
+    }
+
+    private async Task HandleLogoutUser()
+    {
+        await SessionStorage.ClearAsync();
+
+        NavigationManager.NavigateTo("/", true);
+    }
+}

@@ -1,0 +1,37 @@
+﻿@page "/motorcycle-management/details/{Id}"
+
+<div>
+    @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+    {
+        <div class="alert alert-danger w-25 mx-auto mt-3 text-center" role="alert">
+            @ErrorMessage
+        </div>
+    }
+
+    <h2 class="text-center mt-5">Motorcycle details</h2>
+
+    <hr class="w-75" />
+
+    <div class="container">
+        <div class="card mx-auto" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title"><strong>@MotorcycleModel.Make @MotorcycleModel.Model</strong></h5>
+                <p class="card-text">
+                    Year of manufacture: @MotorcycleModel.YearOfManufacture
+                    <br />
+                    Mileage: @MotorcycleModel.Mileage
+                    <br />
+                    Available for rent: @(MotorcycleModel.AvailableForRent ? "✔" : "❌")
+                </p>
+                <div class="card-footer text-center">
+                    <h5><strong>$@MotorcycleModel.Price</strong></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="w-75" />
+
+    <div class="w-75 mx-auto">
+        <a class="btn btn-outline-danger" href="/motorcycle-management" role="button">Back to motorcycles</a>
+    </div>
+</div>

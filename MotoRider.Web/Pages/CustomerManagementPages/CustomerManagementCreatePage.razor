@@ -1,0 +1,47 @@
+﻿@page "/customer-management/create"
+
+<div>
+    @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+    {
+        <div class="alert alert-danger w-25 mx-auto mt-3 text-center" role="alert">
+            @ErrorMessage
+        </div>
+    }
+
+    <h2 class="text-center mt-5">Customer create</h2>
+
+    <hr class="w-75" />
+
+    <div class="container w-25 text-center">
+        <EditForm Model="@CustomerModel" OnValidSubmit="@HandleCreateCustomer">
+            <DataAnnotationsValidator />
+
+            <div class="form-group">
+                <label for="firstName">First name:</label>
+                <InputText class="form-control" id="firstName" @bind-Value="CustomerModel.FirstName" />
+                <ValidationMessage For="@(() => CustomerModel.FirstName)" />
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last name:</label>
+                <InputText class="form-control" id="lastName" @bind-Value="CustomerModel.LastName" />
+                <ValidationMessage For="@(() => CustomerModel.LastName)" />
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone number:</label>
+                <InputText class="form-control" id="phoneNumber" @bind-Value="CustomerModel.PhoneNumber" />
+                <ValidationMessage For="@(() => CustomerModel.PhoneNumber)" />
+            </div>
+
+            <button class="btn btn-outline-success w-100 mt-3" type="submit">Create</button>
+            <a class="btn btn-outline-danger w-100 mt-3" href="/customer-management" role="button">Cancel</a>
+        </EditForm>
+    </div>
+
+    <hr class="w-75" />
+
+    <div class="w-75 mx-auto mb-5">
+        <a class="btn btn-outline-danger" href="/customer-management" role="button">Back to customers</a>
+    </div>
+</div>

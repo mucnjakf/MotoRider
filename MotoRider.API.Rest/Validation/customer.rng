@@ -1,0 +1,13 @@
+﻿<element name="Customer" xmlns="http://relaxng.org/ns/structure/1.0">
+	<oneOrMore>
+		<element name="FirstName">
+			<text />
+		</element>
+		<element name="LastName">
+			<text />
+		</element>
+		<element name="PhoneNumber">
+			<text />
+		</element>
+	</oneOrMore>
+</element>

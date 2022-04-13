@@ -1,0 +1,54 @@
+﻿@page "/motorcycle-rent"
+
+<div>
+    @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+    {
+        <div class="alert alert-danger w-25 mx-auto mt-3 text-center" role="alert">
+            @ErrorMessage
+        </div>
+    }
+
+    <h2 class="text-center mt-5">Motorcycle rent</h2>
+
+    <hr class="w-75" />
+
+    <div class="form-group w-25 mx-auto text-center">
+        <label for="search">Search motorcycles by name:</label>
+        <input type="text" class="form-control" id="search" @bind="SearchTerm" />
+        <button class="btn btn-outline-success w-100 mt-3" @onclick="SearchMotorcycle">Search</button>
+    </div>
+
+    <hr class="w-75" />
+
+    <div class="container">
+        <div class="row">
+            @for (var i = 0; i < MotorcyclesModel.Count(); i++)
+            {
+                <div class="col-4 my-3">
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>@MotorcyclesModel[i].Make @MotorcyclesModel[i].Model</strong></h5>
+                            <p class="card-text">
+                                Year of manufacture: @MotorcyclesModel[i].YearOfManufacture
+                                <br />
+                                Mileage: @MotorcyclesModel[i].Mileage
+                                <br />
+                                Available for rent: @(MotorcyclesModel[i].AvailableForRent ? "✔" : "❌")
+                            </p>
+                            <div class="card-footer text-center">
+                                <h5><strong>$@MotorcyclesModel[i].Price</strong></h5>
+                                <a href="/rent-management/create/@MotorcyclesModel[i].Id" class="btn btn-primary mt-1">Rent a motorcycle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                if (i % 3 == 2)
+                {
+                    <br />
+                }
+            }
+        </div>
+    </div>
+
+    <hr class="w-75" />
+</div>
