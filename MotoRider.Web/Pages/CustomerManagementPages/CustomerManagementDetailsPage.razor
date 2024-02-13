@@ -1,0 +1,30 @@
+﻿@page "/customer-management/details/{Id}"
+
+<div>
+    @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+    {
+        <div class="alert alert-danger w-25 mx-auto mt-3 text-center" role="alert">
+            @ErrorMessage
+        </div>
+    }
+
+    <h2 class="text-center mt-5">Customer details</h2>
+
+    <hr class="w-75" />
+
+    <div class="container">
+        <div class="card mx-auto" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title"><strong>@CustomerModel.FirstName @CustomerModel.LastName</strong></h5>
+                <p class="card-text">
+                    Phone number: @CustomerModel.PhoneNumber
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr class="w-75" />
+
+    <div class="w-75 mx-auto">
+        <a class="btn btn-outline-danger" href="/customer-management" role="button">Back to customers</a>
+    </div>
+</div>

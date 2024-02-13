@@ -1,0 +1,40 @@
+﻿@page "/rent-management/details/{Id}"
+
+<div>
+    @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+    {
+        <div class="alert alert-danger w-25 mx-auto mt-3 text-center" role="alert">
+            @ErrorMessage
+        </div>
+    }
+
+    <h2 class="text-center mt-5">Motorcycle rent details</h2>
+
+    <hr class="w-75" />
+
+    <div class="container">
+        <div class="card mx-auto" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Rent #@RentModel.Id</strong></h5>
+                <p class="card-text">
+                    Date rented: @RentModel.DateRented.ToShortDateString()
+                    <br />
+                    Rented until: @RentModel.RentedUntil.ToShortDateString()
+                    <br />
+                    Price: @RentModel.Price
+                    <br />
+                    Completed: @(RentModel.Completed ? "✔" : "❌")
+                    <br />
+                    Motorcycle: <a href="/motorcycle-management/details/@RentModel.MotorcycleId">@RentModel.Motorcycle.Make @RentModel.Motorcycle.Model</a>
+                    <br />
+                    Customer: <a href="/customer-management/details/@RentModel.CustomerId">@RentModel.Customer.FirstName @RentModel.Customer.LastName</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr class="w-75" />
+
+    <div class="w-75 mx-auto">
+        <a class="btn btn-outline-danger" href="/rent-management" role="button">Back to motorcycle rents</a>
+    </div>
+</div>
