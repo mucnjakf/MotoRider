@@ -1,15 +1,15 @@
-# MotoRider
+# <img src="motorider.png" width="25"/> MotoRider
 
-Motorcycle Shop Web Application - 2021.
+### **👁️ Overview**
+Motorcycle Web Shop Web Application - 2021.
 
----
+<p align="justify">
+  MotorRider is a motorcycle web shop management application tailored for motorcycle  enthusiasts and rental businesses alike. With MotorRider, users can efficiently manage motorcycle inventory and rentals all in one place.
+</p>
 
-### **Overview**
-MotorRider is a motorcycle shop management application tailored for motorcycle enthusiasts and rental businesses alike. With MotorRider, users can efficiently manage motorcycle inventory and rentals all in one place.
+#
 
----
-
-### **Tech Stack**
+### **⚙️ Tech Stack**
 - .NET
   - .NET 5 - ASP.NET Core Blazor WebAssembly
   - .NET 5 - ASP.NET Core Web API
@@ -24,12 +24,10 @@ MotorRider is a motorcycle shop management application tailored for motorcycle e
 - Database
   - Microsoft SQL Server
 
----
+#
 
-### **Tools**
+### **🛠️ Tools**
 - Source Control: GitHub
 - IDE: Visual Studio 2019 | NetBeans
 - API Client: Postman
 - RDBMS: Azure Data Studio
-
----
