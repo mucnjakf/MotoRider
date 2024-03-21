@@ -1,4 +1,4 @@
-# <img src="motorider.png" width="25"/> MotoRider
+# <img src="motorider.svg" width="25"/> MotoRider
 
 ### **👁️ Overview**
 Motorcycle Web Shop Web Application - 2021.
