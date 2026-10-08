@@ -4,7 +4,7 @@
 Motorcycle Web Shop Web Application - 2021.
 
 <p align="justify">
-  MotorRider is a motorcycle web shop management application tailored for motorcycle  enthusiasts and rental businesses alike. With MotorRider, users can efficiently manage motorcycle inventory and rentals all in one place.
+  MotorRider is a motorcycle web shop management application tailored for motorcycle  enthusiasts and rental businesses alike. With MotorRider, users can efficiently manage motorcycle inventory and rentals.
 </p>
 
 #
@@ -23,11 +23,3 @@ Motorcycle Web Shop Web Application - 2021.
   - JAXB
 - Database
   - Microsoft SQL Server
-
-#
-
-### **🛠️ Tools**
-- Source Control: GitHub
-- IDE: Visual Studio 2019 | NetBeans
-- API Client: Postman
-- RDBMS: Azure Data Studio
